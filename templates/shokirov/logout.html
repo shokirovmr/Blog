@@ -1,0 +1,11 @@
+{% block title %} Log Out {% endblock %}
+{% block body %}
+    <form method="post">
+        {% csrf_token %}
+        Are you sure to Log Out
+            <a><button type="submit">Yes</button></a>
+
+        </form>
+        <a href="{% url 'shokirov:home-page' %}">
+                    <button>No</button></a>
+{% endblock %}

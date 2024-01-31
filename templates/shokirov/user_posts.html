@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'main.css' %}">
+        <title>Django Blog</title>
+</head>
+<body>
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="{% url 'shokirov:home' %}">Django Blog</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <a class="nav-item nav-link" href="{% url 'shokirov:home' %}">Home</a>
+              <a class="nav-item nav-link" href="{% url 'shokirov:about' %}">About</a>
+            </div>
+            <!-- Navbar Right Side -->
+                <div class="navbar-nav">
+                    {% if user.is_authenticated %}
+                        <a class="nav-item nav-link" href="{% url 'shokirov:post_form' %}">New Post</a>
+                        <a class="nav-item nav-link" href="{% url 'shokirov:user_posts' %}">Profile</a>
+
+
+                        <a class="nav-item nav-link" href="{% url 'shokirov:logout' %}">Logout</a>
+
+                    {% else %}
+                        <a class="nav-item nav-link" href="{% url 'shokirov:login' %}">Login</a>
+                        <a class="nav-item nav-link" href="{% url 'shokirov:register' %}">Register</a>
+                    {% endif %}
+
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+              <div class="alert alert-{{ message.tags }}">
+                <h3>Django messages might be shown here</h3>
+              </div>
+            <h1 class="mb-3">Posts by Andrew Ng </h1>
+         
+            <article class="media content-section">
+              <img class="rounded-circle article-img" src="{% static 'andrew.jpeg' %}">
+              <div class="media-body">
+                <div class="article-metadata">
+                  <a class="mr-2" href="user_posts.html">Andrew Ng</a>
+                  <small class="text-muted">Aug 21, 2019</small>
+                </div>
+                <h4><a class="article-title" href="post_detail.html">AI in Latin America: Announcing our first international office in Colombia</a></h2>
+                <p class="article-content">I am excited to announce the opening of our office in Medellín, Colombia. 
+                  The office will serve as the Latin American headquarters for three of the companies in our AI ecosystem</p>
+              </div>
+            </article>
+            <article class="media content-section">
+              <img class="rounded-circle article-img" src="{% static 'andrew.jpeg' %}">
+              <div class="media-body">
+                <div class="article-metadata">
+                  <a class="mr-2" href="user_posts.html">Andrew Ng</a>
+                  <small class="text-muted">Aug 21, 2019</small>
+                </div>
+                <h4><a class="article-title" href="post_detail.html">Introducing the AI Transformation Playbook</a></h2>
+                <p class="article-content">Dear friends,
+                  I’m excited to share with you the AI Transformation Playbook. Drawn from my experience leading Google Brain, 
+                  Baidu’s AI Group, and Landing AI, this Playbook provides a roadmap for your company to transform into a great AI company.</p>
+              </div>
+            </article>
+            
+        
+          </div>
+      <div class="col-md-4">
+        <div class="content-section">
+          <h3>Our Sidebar</h3>
+          <p class='text-muted'>You can put any information here you'd like.
+            <ul class="list-group">
+              <li class="list-group-item list-group-item-light">Latest Posts</li>
+              <li class="list-group-item list-group-item-light">Announcements</li>
+              <li class="list-group-item list-group-item-light">Calendars</li>
+              <li class="list-group-item list-group-item-light">etc</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+      </div>
+      </main>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
+              

@@ -1,0 +1,11 @@
+{% block title %} Register Page {% endblock %}
+{% block body %}
+    <h1> Registration Page</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    <button type="submit">Register</button>
+
+    </form>
+
+{% endblock %}
